@@ -1,5 +1,5 @@
-FROM nginx
-RUN rm -rf /usr/share/html/*
-RUN cp . /usr/share/html/
+FROM nginx:latest
+RUN rm -rf /usr/share/nginx/html/*
+COPY cp . /usr/share/nginx/html/
 
-EXPOSE 8080
+EXPOSE 80
