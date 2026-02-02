@@ -28,11 +28,23 @@ pipeline {
     }
 }
     post {
-        emailext{
+        success {
+            emailext(
+            body: '''THIS MAIL IS REGARDING THE successful BUILD.
+FOR THE REFERENCE CHECK COSNSOLE OUTPUT OF ${BUILD_NUMBER}''', 
+    subject: 'Congratulationsss Build successful ${BUILD_NAME}', 
+    to: 'khanhuzefa2001@gmail.com'
+            )
+        }
+        failure {
+            emailext(
             body: '''THIS MAIL IS REGARDING THE FAILED BUILD.
 FOR THE REFERENCE CHECK COSNSOLE OUTPUT OF ${BUILD_NUMBER}''', 
     subject: 'WARNING!!!!! Build Failed ${BUILD_NAME}', 
     to: 'khanhuzefa2001@gmail.com'
+            )
+        }
+
                 }
             }
         
