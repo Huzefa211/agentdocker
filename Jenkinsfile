@@ -29,6 +29,7 @@ pipeline {
 }
     post {
         success {
+            archiveArtifacts artifacts: ' *.tar'
             emailext(
             body: '''THIS MAIL IS REGARDING THE successful BUILD.
 FOR THE REFERENCE CHECK COSNSOLE OUTPUT OF ${BUILD_NUMBER}''', 
